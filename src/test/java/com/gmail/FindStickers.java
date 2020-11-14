@@ -12,7 +12,7 @@ public class FindStickers {
         ChromeDriver driver = new ChromeDriver();
         driver.get("http://localhost/litecart/public_html/en/");
         int duck_sum=0; WebElement link;  List<WebElement>  sticker;
-        List<WebElement> duck_crowd=driver.findElements(By.className("image-wrapper"));
+        List<WebElement> duck_crowd=driver.findElements(By.className("product"));
         duck_sum = duck_crowd.size();int check =0;
         System.out.println("Всего "+ duck_sum+ " уток");
      for (WebElement duck : duck_crowd) {
