@@ -8,14 +8,16 @@ import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-;
+;import java.nio.charset.Charset;
+import java.util.Random;
 
 public class CheckUser {
     @Test
     public void First_Test() throws InterruptedException {
          WebDriver driver = new ChromeDriver();
          driver.get("http://localhost/litecart/public_html/en/");
-          String email = "bondarenkoolga363@gmail.com";
+
+        String email = GenerateLogin()+"@gmail.com";
         String password = "1234567";
         driver.findElement(By.cssSelector("form[name='login_form'] table tr:last-child")).click();
         Thread.sleep(1000);
@@ -43,7 +45,18 @@ public class CheckUser {
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("div#box-account div.content li:last-child a")).click();
     }
-
+    public String GenerateLogin() {
+        char[] chars = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        StringBuilder sb = new StringBuilder(20);
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            char c = chars[random.nextInt(chars.length)];
+            sb.append(c);
+        }
+        String output = sb.toString();
+     //   System.out.println(output);
+        return output;
+    }
         private void login(String email, String password, WebDriver driver) {
             driver.findElement(By.name("email")).sendKeys(email);
             driver.findElement(By.name("password")).sendKeys(password);
