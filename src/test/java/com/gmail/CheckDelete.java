@@ -28,6 +28,7 @@ public class CheckDelete {
         driver.findElement(By.cssSelector("div#cart a.link")).click();
         clearCart(driver, wait);
         Thread.sleep(2000);
+        driver.quit();
         }
     private void addItem(WebDriver driver, WebDriverWait wait) {
         WebElement quantity = driver.findElement(By.cssSelector("div#cart span.quantity"));
