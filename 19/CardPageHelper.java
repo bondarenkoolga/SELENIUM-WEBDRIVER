@@ -41,9 +41,13 @@ public class CardPageHelper {
 
 
     public void deleteOneCardItem() {
+      //  driver.findElement(By.name("remove_cart_item")).click();
+       // System.out.println("Удаляем товар из корзины");
+      //  wait.until(ExpectedConditions.stalenessOf(driver.findElement(By.xpath("//table[@class='dataTable rounded-corners']"))));
+        WebElement element = driver.findElement(By.xpath("//table[@class='dataTable rounded-corners']")); // запомнили элемент
         driver.findElement(By.name("remove_cart_item")).click();
         System.out.println("Удаляем товар из корзины");
-        wait.until(ExpectedConditions.stalenessOf(driver.findElement(By.xpath("//table[@class='dataTable rounded-corners']"))));
+        wait.until(ExpectedConditions.stalenessOf(element)); // ждём исчезновения ранее запомненного элемента.
     }
 
     public void goToCardPage() {
